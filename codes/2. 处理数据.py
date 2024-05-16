@@ -47,6 +47,8 @@ def add_index_data(stock_data, stock_code):
     indexdf = pd.read_csv(rf'../stock_data/daily_data/000001.XSHG.csv', index_col=0, parse_dates=True)
     indexdf.index.name = 'date'
 
+
+
     stock_data.index = pd.to_datetime(stock_data.index)
     df_ = pd.merge(stock_data, indexdf, how='left')  # how='left' 表示保留左表（股票数据）的索引
     # df_.set_index('date', inplace=True)  # 设置date列为索引列
